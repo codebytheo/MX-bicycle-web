@@ -8,16 +8,16 @@ gsap.registerPlugin(ScrollTrigger);
 const Introduce = () => {
   const container = useRef<HTMLDivElement>(null)
   useGSAP(() => {
-    gsap.set(["#text","#img1","#img2"],{filter:"blur(5px)"})
+    gsap.set(["#text","#img1"],{filter:"blur(5px)"})
 
-    gsap.to(["#text","#img1","#img2"],{
+    gsap.to(["#text","#img1"],{
       filter:"blur(0px)",
       ease:"power2.in",
       duration:0.2,
       scrollTrigger:{
         trigger:container.current,
         start:"top bottom",
-        end:"+200px bottom",
+        end:"+300px bottom",
         scrub:1,
         markers:true,
       }

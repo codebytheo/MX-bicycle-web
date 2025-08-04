@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import Navbar from "./components/navbar"
 import Contact from "./pages/contact"
 import Footer from "./pages/footer"
@@ -8,20 +9,37 @@ import Picture from "./pages/picture"
 import Product from "./pages/product"
 import Sales from "./pages/sales"
 import Testimony from "./pages/testimony"
+import Lenis from "lenis"
+import gsap from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger)
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis()
+    lenis.on("scroll",ScrollTrigger.update)
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000)
+    })
+
+    gsap.ticker.lagSmoothing(0)
+
+  },[])
+
   return (
     <div className='relative'>
       <Navbar />
       <Home />
       <Introduce />
-      {/* <Sales />
+      <Sales />
       <Product />
       <Philoshopy />
       <Testimony />
       <Picture />
       <Contact />
-      <Footer /> */}
+      <Footer />
     </div>
   )
 }
