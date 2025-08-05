@@ -38,7 +38,7 @@ const Home = () => {
     <div className="h-screen bg-neutral-900 text-neutral-200 px-8 relative overflow-hidden">
       <p className="font-bold text-2xl leading-none text-right translate-y-20">WE GIVE YOU <span className="font-lobster text-orange-600">MODERN BICYCLE</span> <br/>WITH FUTURISTIC DESIGN.<br/> MAKES YOU <span className="font-lobster text-blue-600">PROFESSIONAL</span></p>
       <p ref={textRef} className="uppercase text-[12rem] text-neutral-200 mix-blend-difference absolute left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 z-30">adventure</p>
-      <img src="/img/bicycle.png" alt="bicycle" className="w-[80%] absolute -bottom-1/2 z-40" />
+      <img src="/img/bicycle.webp" alt="bicycle" className="w-[80%] absolute -bottom-1/2 z-40" />
 
       <div className="absolute top-1/3">
         <div
