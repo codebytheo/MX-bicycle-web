@@ -29,7 +29,7 @@ function App() {
   },[])
 
   return (
-    <div className='relative'>
+    <div className='relative bg-neutral-900'>
       <Navbar />
       <Home />
       <Introduce />

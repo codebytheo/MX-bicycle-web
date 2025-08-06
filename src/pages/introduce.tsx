@@ -19,7 +19,6 @@ const Introduce = () => {
         start:"top bottom",
         end:"+300px bottom",
         scrub:1,
-        markers:true,
       }
     })
   },{scope:container})

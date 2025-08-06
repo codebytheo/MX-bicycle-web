@@ -64,7 +64,7 @@ const Home = () => {
                 key={i}
                 src={src}
                 ref={(el) => {imageRefs.current[i] = el}}
-                className="absolute inset-0 w-full h-full object-cover saturate-0 will-change-transform translate-z-0"
+                className="absolute inset-0 w-full h-full object-cover saturate-0 will-change-transform"
                 alt={`stack-img-${i}`}
               />
             )

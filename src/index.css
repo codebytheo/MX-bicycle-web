@@ -5,10 +5,6 @@
 @import "tailwindcss";
 
 
-@theme {
-  --color-darkgrey: #0e0e0e;
-}
-
 :root {
   font-family: "Montserrat", sans-serif;
   line-height: 1.5;
