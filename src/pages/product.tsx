@@ -7,10 +7,10 @@ const Product = () => {
   const containerText = useRef<HTMLDivElement>(null)
   const img1 = useRef<HTMLImageElement>(null)
   const img2 = useRef<HTMLImageElement>(null)
-  const text1 = useRef<HTMLSpanElement>(null)
-  const text2 = useRef<HTMLSpanElement>(null)
-  const text3 = useRef<HTMLSpanElement>(null)
-  const text4 = useRef<HTMLSpanElement>(null)
+  const text1 = useRef(null)
+  const text2 = useRef(null)
+  const text3 = useRef(null)
+  const text4 = useRef(null)
 
   useGSAP(() => {
     gsap.set(img1.current,{
@@ -19,7 +19,7 @@ const Product = () => {
     gsap.set(img2.current,{
       clipPath:"polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"
     })
-    gsap.set(text1.current,{top:"-100px"})
+    // gsap.set(text1.current,{top:"-200px"})
     gsap.set(text2.current,{left:"-100%"})
     gsap.set(text3.current,{top:"-100%"})
     gsap.set(text4.current,{bottom:"-100%"})
@@ -64,10 +64,18 @@ const Product = () => {
         <img ref={img1} src="/img/3.webp" alt="bicycle" className="w-1/2 saturate-150" />
         <img ref={img2} src="/img/9.webp" alt="bicycle" className="w-1/2 saturate-150" />
       </div>
-      <div ref={containerText} className="w-2/5 text-5xl uppercase text-neutral-200 absolute left-8 bottom-8">
-        <div className="overflow-hidden relative border"><span ref={text1}>We’re more than just a bike shop—we’re a</span></div>
-        <div className="overflow-hidden relative border"><span ref={text2} className="font-lobster text-neutral-900 lowercase text-6xl">community </span><span>of cyclists who</span></div>
-        <div className="overflow-hidden relative border"><span ref={text3} className="text-justify">share the same passion for the </span><span ref={text4} className="font-lobster text-neutral-900 lowercase text-6xl">open road and thrilling trails.</span></div> 
+      <div ref={containerText} className="w-2/5 text-5xl uppercase text-neutral-200 absolute left-8 bottom-8 border">
+        <div className="text-justify relative h-[100px] border">
+          <p ref={text1} className="absolute">We’re more than just a bike shop—we’re a</p>
+        </div>
+        <div className="overflow-hidden relative">
+          <span ref={text2} className="font-lobster text-neutral-900 lowercase text-6xl">community </span>
+          <span>of cyclists who</span>
+        </div>
+        <div className="text-justify overflow-hidden relative">
+          <span ref={text3} className="text-justify">share the same passion for the </span>
+          <span ref={text4} className="font-lobster text-neutral-900 lowercase text-6xl">open road and thrilling trails.</span>
+        </div> 
       </div>
       <p className="absolute bottom-2/5 left-8 tracking-widest text-neutral-900 font-semibold">. identity</p>
     </div>
