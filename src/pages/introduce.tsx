@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Introduce = () => {
   const container = useRef<HTMLDivElement>(null)
+
   useGSAP(() => {
     gsap.set(["#text","#img1"],{filter:"blur(5px)"})
 
