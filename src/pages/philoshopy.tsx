@@ -1,5 +1,5 @@
-import { useGSAP } from "@gsap/react"
 import gsap from "gsap"
+import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { useRef } from "react"
 
@@ -7,32 +7,30 @@ gsap.registerPlugin(ScrollTrigger)
 
 const Philoshopy = () => {
   const container = useRef<HTMLDivElement>(null)
-  const text1 = useRef(null)
-  const text2 = useRef(null)
-  const text3 = useRef(null)
 
-  // useGSAP(() => {
-  //   gsap.set([text1.current,text2.current,text3.current],{
-  //     opacity:0,
-  //   })
+  useGSAP(() => {
+    const letters = gsap.utils.toArray<HTMLSpanElement>(container.current!.querySelectorAll("span"))
+    
+    gsap.set(letters, { opacity: 0, top: "25px" });
+    const tl = gsap.timeline({
+      scrollTrigger: {
+          trigger: container.current,
+          start: "top top",
+          end: "+=200%",
+          scrub: 1,
+          pin:true
+    }})
 
-  //   gsap.timeline({
-  //     scrollTrigger: {
-  //       trigger: container.current,
-  //       start: "top top",
-  //       end: "+=200%",
-  //       pin: true,
-  //       scrub: true,
-  //     }
-  //   })
-  //   .to(text1.current, { opacity:1, })
-  //   .to(text2.current, { opacity:1, })
-  //   .to(text3.current, { opacity:1, })
-
-
-  // },{scope:container})
+    tl.to(letters, { 
+      opacity: 1,
+      top: 0,
+      stagger: 0.05,
+    })
+    .to(container.current, {duration:4})
+  },{scope:container})
 
   const paragraph1 = '"At MX, we are driven by a simple philosophy: every cyclist deserves a bike that pushes limits. We combine precision engineering, innovative design, and relentless testing to ensure every ride is smoother, faster, and more reliable."'
+  const paragraph2 = '"We believe a bicycle is more than just a machine—it’s freedom, health, and adventure. Every bike we offer reflects our passion for cycling and our commitment to helping riders experience the joy of movement, one ride at a time."'
 
   return (
     <div ref={container} className="h-screen w-screen bg-gradient-to-b from-neutral-200 to-blue-50 px-8 py-10 relative">
@@ -40,16 +38,23 @@ const Philoshopy = () => {
         <div className="w-full place-self-end text-justify">
           {
             paragraph1.match(/MX| |"|[^\s"]+/g)?.map((ch,i) => (
-              <span key={i} className={`text-4xl xl:text-5xl uppercase font-bold ${ch === '"' ? 'text-blue-600' : ch === 'MX' ? 'text-orange-600' : 'text-neutral-900' }`}>
+              <span key={i} className={`text-4xl xl:text-5xl relative uppercase font-bold will-change-transform ${ch === '"' ? 'text-blue-600' : ch === 'MX' ? 'text-orange-600' : 'text-neutral-900' }`}>
                 {ch === " " ? " " : ch}
               </span>
             ) )
           }
         </div>
         <div className="relative">
-          <p ref={text2} className="text-2xl xl:text-4xl uppercase font-bold text-neutral-900 text-justify"><span className="text-orange-600">"</span>We believe a bicycle is more than just a machine—it’s freedom, health, and adventure. Every bike we offer reflects our passion for cycling and our commitment to helping riders experience the joy of movement, one ride at a time.<span className="text-orange-600">"</span>
+          <p className="text-2xl xl:text-4xl uppercase font-bold text-neutral-900 text-justify">
+            {
+              paragraph2.match(/MX| |"|[^\s"]+/g)?.map((ch,i) => (
+              <span key={i} className={`relative text-2xl xl:text-4xl uppercase font-bold will-change-transform ${ch === '"' ? 'text-orange-600' : 'text-neutral-900' }`}>
+                {ch === " " ? " " : ch}
+              </span>
+            ) )
+            }
           </p>
-          <p ref={text3} className="text-6xl font-lobster text-orange-600 absolute bottom-20 right-8">"Ride with passion.<br/> Ride with purpose."</p>
+          <p className="text-6xl font-lobster text-orange-600 absolute bottom-20 right-8">"Ride with passion.<br/> Ride with purpose."</p>
         </div>
       </div>
       <p className="absolute left-8 top-10 tracking-widest text-blue-600 font-semibold">. our philoshopy</p>
