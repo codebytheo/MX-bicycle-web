@@ -20,7 +20,7 @@ const Testimony = () => {
       scrollTrigger:{
         trigger: container.current,
         start: "top bottom",
-        end: "bottom +=90%",
+        end: "bottom bottom",
         scrub:true,
       }
     })
@@ -28,10 +28,12 @@ const Testimony = () => {
     tl.to(img1.current, {
       clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       ease:"power2.inOut",
+      duration:2,
     })
     .to(img2.current, {
       clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      ease:"power2.inOut"
+      ease:"power2.inOut",
+      duration:2,
     })
     .to(text1.current,{
       filter:"blur(0px)",
