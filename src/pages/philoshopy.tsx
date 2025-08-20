@@ -10,7 +10,7 @@ const Philoshopy = () => {
 
   useGSAP(() => {
     const letters = gsap.utils.toArray<HTMLSpanElement>(container.current!.querySelectorAll("span"))
-    
+
     gsap.set(letters, { opacity: 0, top: "25px" });
     const tl = gsap.timeline({
       scrollTrigger: {
@@ -21,7 +21,7 @@ const Philoshopy = () => {
           pin:true
     }})
 
-    tl.to(letters, { 
+    tl.to(letters, {
       opacity: 1,
       top: 0,
       stagger: 0.05,
@@ -38,17 +38,17 @@ const Philoshopy = () => {
         <div className="w-full place-self-end text-justify">
           {
             paragraph1.match(/MX| |"|[^\s"]+/g)?.map((ch,i) => (
-              <span key={i} className={`text-4xl xl:text-5xl relative uppercase font-bold will-change-transform ${ch === '"' ? 'text-blue-600' : ch === 'MX' ? 'text-orange-600' : 'text-neutral-900' }`}>
+              <span key={i} className={`text-3xl xl:text-4xl 3xl:text-5xl relative uppercase font-bold will-change-transform ${ch === '"' ? 'text-blue-600' : ch === 'MX' ? 'text-orange-600' : 'text-neutral-900' }`}>
                 {ch === " " ? " " : ch}
               </span>
             ) )
           }
         </div>
         <div className="relative">
-          <p className="text-2xl xl:text-4xl uppercase font-bold text-neutral-900 text-justify">
+          <p className="text-justify">
             {
               paragraph2.match(/MX| |"|[^\s"]+/g)?.map((ch,i) => (
-              <span key={i} className={`relative text-2xl xl:text-4xl uppercase font-bold will-change-transform ${ch === '"' ? 'text-orange-600' : 'text-neutral-900' }`}>
+              <span key={i} className={`relative text-2xl xl:text-3xl 3xl:text-4xl uppercase font-bold will-change-transform ${ch === '"' ? 'text-orange-600' : 'text-neutral-900' }`}>
                 {ch === " " ? " " : ch}
               </span>
             ) )
