@@ -20,61 +20,76 @@ const Picture = () => {
     gsap.set([img3.current,img4.current],{clipPath:"polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"})
     // gsap.set(img4.current,{clipPath:"polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"})
 
-    const tl = gsap.timeline()
+     // One timeline to control everything
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: container.current,
+        start: "top-=50 bottom",
+        end: "bottom center",
+        scrub: true,
+        pin: false,
+      }
+    })
+    .to(img1.current, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
+    .to(text.current, { filter: "blur(0px)", duration: 1 }, "<") // run at the same time
+    .to(img2.current, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
+    .to([img3.current, img4.current], { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
 
-    tl
-    .to(img1.current,{
-      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      scrollTrigger:{
-        trigger: container.current,
-        start:"top +50px",
-        end:"+=50%",
-        scrub:true,
-      }
+    // const tl = gsap.timeline()
 
-    })
-    .to(text.current,{
-      filter:"blur(0px)",
-      scrollTrigger:{
-        trigger: container.current,
-        start:"top center",
-        end:"+=100%",
-        scrub:true,
-      }
-    })
-    .to(img2.current,{
-      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      scrollTrigger:{
-        trigger: container.current,
-        start:"top +50px",
-        end:"+=50%",
-        scrub:true,
-      }
-    })
-    .to([img3.current,img4.current],{
-      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      scrollTrigger:{
-        trigger: img3.current,
-        start:"top +=80%",
-        end:"+=50%",
-        scrub:true,
-      }
-    })
+    // tl
+    // .to(img1.current,{
+    //   clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    //   scrollTrigger:{
+    //     trigger: container.current,
+    //     start:"top +50px",
+    //     end:"+=50%",
+    //     scrub:true,
+    //   }
+
+    // })
+    // .to(text.current,{
+    //   filter:"blur(0px)",
+    //   scrollTrigger:{
+    //     trigger: container.current,
+    //     start:"top center",
+    //     end:"+=100%",
+    //     scrub:true,
+    //   }
+    // })
+    // .to(img2.current,{
+    //   clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    //   scrollTrigger:{
+    //     trigger: container.current,
+    //     start:"top +50px",
+    //     end:"+=50%",
+    //     scrub:true,
+    //   }
+    // })
+    // .to([img3.current,img4.current],{
+    //   clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+    //   scrollTrigger:{
+    //     trigger: img3.current,
+    //     start:"top +=80%",
+    //     end:"+=50%",
+    //     scrub:true,
+    //   }
+    // })
 
   },{scope:container})
 
   return (
-    <div ref={container} className="bg-neutral-900 min-h-screen px-8 py-[50vh]">
+    <div ref={container} className="bg-neutral-900 h-[200dvh] px-8 border border-white">
       <div className="relative">
         <p ref={text} className="text-8xl uppercase text-neutral-200 absolute right-8 top-20">. our journey</p>
         <div className="flex gap-8 items-end">
-          <img ref={img1} src="/img/10.webp" alt="bicycle" className="w-1/3 saturate-150" />
-          <img ref={img2} src="/img/7.webp" alt="bicycle" className="w-1/2 saturate-150" />
+          <img ref={img1} src="/img/10.webp" alt="bicycle" loading="lazy" className="w-1/3 saturate-150" />
+          <img ref={img2} src="/img/7.webp" alt="bicycle" loading="lazy" className="w-1/2 saturate-150" />
         </div>
         <div className="flex justify-between items-start mt-20">
-          <img ref={img3} src="/img/11.webp" alt="bicycle" className="w-1/2 saturate-150" />
+          <img ref={img3} src="/img/11.webp" alt="bicycle" loading="lazy" className="w-1/2 saturate-150" />
 
-          <img ref={img4} src="/img/5.webp" alt="bicycle" className="w-1/6 saturate-150" />
+          <img ref={img4} src="/img/5.webp" alt="bicycle" loading="lazy" className="w-1/6 saturate-150" />
         </div>
       </div>
     </div>

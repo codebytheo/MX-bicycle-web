@@ -55,8 +55,8 @@ const Product = () => {
   return (
     <div ref={container} className="bg-gradient-to-b from-orange-500 to-orange-600 to-70% min-h-screen relative px-8 py-10">
       <div className="flex gap-2 items-start">
-        <img ref={img1} src="/img/3.webp" alt="bicycle" className="w-1/2 saturate-150" />
-        <img ref={img2} src="/img/9.webp" alt="bicycle" className="w-1/2 saturate-150" />
+        <img ref={img1} src="/img/3.webp" alt="bicycle" loading="lazy" className="w-1/2 saturate-150" />
+        <img ref={img2} src="/img/9.webp" alt="bicycle" loading="lazy" className="w-1/2 saturate-150" />
       </div>
       <div ref={containerText} className="w-2/5 text-5xl uppercase text-neutral-200 absolute left-8 bottom-8">
         <p ref={text} className="relative text-justify">
