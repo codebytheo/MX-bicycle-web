@@ -21,65 +21,65 @@ const Picture = () => {
     // gsap.set(img4.current,{clipPath:"polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"})
 
      // One timeline to control everything
-    gsap.timeline({
-      scrollTrigger: {
+    // gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: container.current,
+    //     start: "top bottom",
+    //     end: "bottom center",
+    //     scrub: true,
+    //     pin: false,
+    //   }
+    // })
+    // .to(img1.current, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
+    // .to(text.current, { filter: "blur(0px)", duration: 1 }, "<") // run at the same time
+    // .to(img2.current, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
+    // .to([img3.current, img4.current], { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
+
+    const tl = gsap.timeline()
+
+    tl
+    .to(img1.current,{
+      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      scrollTrigger:{
         trigger: container.current,
-        start: "top-=50 bottom",
-        end: "bottom center",
-        scrub: true,
-        pin: false,
+        start:"top +50px",
+        end:"+=50%",
+        scrub:true,
+      }
+
+    })
+    .to(text.current,{
+      filter:"blur(0px)",
+      scrollTrigger:{
+        trigger: container.current,
+        start:"top center",
+        end:"+=100%",
+        scrub:true,
       }
     })
-    .to(img1.current, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
-    .to(text.current, { filter: "blur(0px)", duration: 1 }, "<") // run at the same time
-    .to(img2.current, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
-    .to([img3.current, img4.current], { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
-
-    // const tl = gsap.timeline()
-
-    // tl
-    // .to(img1.current,{
-    //   clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    //   scrollTrigger:{
-    //     trigger: container.current,
-    //     start:"top +50px",
-    //     end:"+=50%",
-    //     scrub:true,
-    //   }
-
-    // })
-    // .to(text.current,{
-    //   filter:"blur(0px)",
-    //   scrollTrigger:{
-    //     trigger: container.current,
-    //     start:"top center",
-    //     end:"+=100%",
-    //     scrub:true,
-    //   }
-    // })
-    // .to(img2.current,{
-    //   clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    //   scrollTrigger:{
-    //     trigger: container.current,
-    //     start:"top +50px",
-    //     end:"+=50%",
-    //     scrub:true,
-    //   }
-    // })
-    // .to([img3.current,img4.current],{
-    //   clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-    //   scrollTrigger:{
-    //     trigger: img3.current,
-    //     start:"top +=80%",
-    //     end:"+=50%",
-    //     scrub:true,
-    //   }
-    // })
+    .to(img2.current,{
+      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      scrollTrigger:{
+        trigger: container.current,
+        start:"top +50px",
+        end:"+=50%",
+        scrub:true,
+      }
+    })
+    .to([img3.current,img4.current],{
+      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
+      scrollTrigger:{
+        trigger: img3.current,
+        start:"top +=80%",
+        end:"+=50%",
+        scrub:true,
+      }
+    })
 
   },{scope:container})
 
   return (
-    <div ref={container} className="bg-neutral-900 h-[200dvh] px-8 border border-white">
+    <div ref={container} className="bg-neutral-900 h-[200dvh] px-8">
       <div className="relative">
         <p ref={text} className="text-8xl uppercase text-neutral-200 absolute right-8 top-20">. our journey</p>
         <div className="flex gap-8 items-end">
