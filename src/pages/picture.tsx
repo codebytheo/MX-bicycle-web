@@ -8,74 +8,20 @@ gsap.registerPlugin(ScrollTrigger)
 const Picture = () => {
   const container = useRef<HTMLDivElement>(null)
   const text = useRef<HTMLParagraphElement>(null)
-  const img1 = useRef<HTMLImageElement>(null)
-  const img2 = useRef<HTMLImageElement>(null)
-  const img3 = useRef<HTMLImageElement>(null)
-  const img4 = useRef<HTMLImageElement>(null)
 
   useGSAP(() => {
     gsap.set(text.current,{filter:"blur(10px)"})
-    gsap.set(img1.current,{clipPath:"polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"})
-    gsap.set(img2.current,{clipPath:"polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"})
-    gsap.set([img3.current,img4.current],{clipPath:"polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%)"})
-    // gsap.set(img4.current,{clipPath:"polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)"})
-
-     // One timeline to control everything
-    // gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: container.current,
-    //     start: "top bottom",
-    //     end: "bottom center",
-    //     scrub: true,
-    //     pin: false,
-    //   }
-    // })
-    // .to(img1.current, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
-    // .to(text.current, { filter: "blur(0px)", duration: 1 }, "<") // run at the same time
-    // .to(img2.current, { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
-    // .to([img3.current, img4.current], { clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)", duration: 1 })
-
+  
     const tl = gsap.timeline()
 
-    tl
-    .to(img1.current,{
-      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      scrollTrigger:{
-        trigger: container.current,
-        start:"top +50px",
-        end:"+=50%",
-        scrub:true,
-      }
-
-    })
-    .to(text.current,{
+    tl.to(text.current,{
       filter:"blur(0px)",
       scrollTrigger:{
-        trigger: container.current,
-        start:"top center",
-        end:"+=100%",
+        trigger: text.current,
+        start:"top +80%",
         scrub:true,
       }
     })
-    .to(img2.current,{
-      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      scrollTrigger:{
-        trigger: container.current,
-        start:"top +50px",
-        end:"+=50%",
-        scrub:true,
-      }
-    })
-    .to([img3.current,img4.current],{
-      clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
-      scrollTrigger:{
-        trigger: img3.current,
-        start:"top +=80%",
-        end:"+=50%",
-        scrub:true,
-      }
-    })
-
   },{scope:container})
 
   return (
@@ -83,13 +29,13 @@ const Picture = () => {
       <div className="relative">
         <p ref={text} className="text-8xl uppercase text-neutral-200 absolute right-8 top-20">. our journey</p>
         <div className="flex gap-8 items-end">
-          <img ref={img1} src="/img/10.webp" alt="bicycle" loading="lazy" className="w-1/3 saturate-150" />
-          <img ref={img2} src="/img/7.webp" alt="bicycle" loading="lazy" className="w-1/2 saturate-150" />
+          <img src="/img/10.webp" alt="bicycle" loading="lazy" className="w-1/3 saturate-150" />
+          <img src="/img/7.webp" alt="bicycle" loading="lazy" className="w-1/2 saturate-150" />
         </div>
         <div className="flex justify-between items-start mt-20">
-          <img ref={img3} src="/img/11.webp" alt="bicycle" loading="lazy" className="w-1/2 saturate-150" />
+          <img src="/img/11.webp" alt="bicycle" loading="lazy" className="w-1/2 saturate-150" />
 
-          <img ref={img4} src="/img/5.webp" alt="bicycle" loading="lazy" className="w-1/6 saturate-150" />
+          <img src="/img/5.webp" alt="bicycle" loading="lazy" className="w-1/6 saturate-150" />
         </div>
       </div>
     </div>
