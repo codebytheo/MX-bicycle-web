@@ -9,39 +9,27 @@ const Introduce = () => {
   const container = useRef<HTMLDivElement>(null)
 
   useGSAP(() => {
-    // gsap.set(["#text","#img1"],{filter:"blur(5px)"})
+    gsap.set(["#text","#img1"],{filter:"blur(5px)"})
 
-    // gsap.to(["#text","#img1"],{
-    //   filter:"blur(0px)",
-    //   ease:"power2.in",
-    //   duration:0.2,
-    //   scrollTrigger:{
-    //     trigger:container.current,
-    //     start:"top bottom",
-    //     end:"+300px bottom",
-    //     scrub:1,
-    //   }
-    // })
+    gsap.to(["#text","#img1"],{
+      filter:"blur(0px)",
+      ease:"power2.in",
+      duration:0.2,
+      scrollTrigger:{
+        trigger:container.current,
+        start:"top bottom",
+        end:"+300px bottom",
+        scrub:1,
+      }
+    })
 
-    ["#text", "#img1", "#img2"].forEach((id) => {
-      gsap.from(id, {
-        opacity: 0,
-        y: 50,
-        duration: 0.6,
-        scrollTrigger: {
-          trigger: id,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    });
   },{scope:container})
 
   return (
     <div ref={container} className="min-h-screen bg-neutral-900 text-neutral-200 px-8 py-10 relative">
       <div className="flex gap-2 items-baseline">
         <img id="img1" src="/img/4.webp" alt="bicycle" loading="lazy" className="w-1/3 saturate-150 will-change-transform" />
-        <img id="img2" src="/img/6.webp" alt="bicycle" loading="lazy" className="w-1/3 saturate-150 will-change-transform" />
+        <img src="/img/6.webp" alt="bicycle" loading="lazy" className="w-1/3 saturate-150 will-change-transform" />
       </div>
       <p id="text" className="w-1/2 text-2xl xl:text-3xl 3xl:text-4xl text-justify absolute right-8 top-10"><span className="uppercase">your trusted destination for high-performance sport bicycles. We are passionate about delivering top-quality bikes designed for speed, endurance, and adventure—perfect for both professional athletes and cycling enthusiasts.</span> <span className="font-lobster text-orange-600">Whether you're conquering mountain trails, racing on the road, or enjoying a weekend ride, we provide bikes that combine cutting-edge technology, durability, and style to elevate your cycling experience.</span>
       </p>

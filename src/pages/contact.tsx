@@ -1,7 +1,7 @@
 
 const Contact = () => {
   return (
-    <div className="bg-neutral-900 h-screen px-8 py-10 relative overflow-hidden">
+    <div id="contact" className="bg-neutral-900 h-screen px-8 py-10 relative overflow-hidden">
       <h1 className="text-neutral-200 text-center uppercase text-8xl font-bold">contact-us</h1>
       <form action="" className="bg-neutral-900 w-1/3 mx-auto p-4 flex flex-col gap-4 mt-10 rounded">
         <div>
