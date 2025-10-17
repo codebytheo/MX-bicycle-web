@@ -10,13 +10,14 @@ const Philoshopy = () => {
 
   useGSAP(() => {
     const letters = gsap.utils.toArray<HTMLSpanElement>(container.current!.querySelectorAll("span"))
+    const containerHeight = container.current?.clientHeight! * 2
 
     gsap.set(letters, { opacity: 0, top: "25px" });
     const tl = gsap.timeline({
       scrollTrigger: {
           trigger: container.current,
           start: "top top",
-          end: "+=200%",
+          end: `${containerHeight}px`,
           scrub: 1,
           pin:true
     }})
