@@ -28,8 +28,29 @@ const Introduce = () => {
   return (
     <div ref={container} className="min-h-screen bg-neutral-900 text-neutral-200 px-8 py-10 relative">
       <div className="flex gap-2 items-baseline">
-        <img id="img1" src="/img/4.webp" alt="bicycle" loading="lazy" className="w-1/3 saturate-150 will-change-transform" />
-        <img src="/img/6.webp" alt="bicycle" loading="lazy" className="w-1/3 saturate-150 will-change-transform" />
+        <img 
+          id="img1" 
+          src="/img/4.webp" 
+          alt="bicycle" 
+          className="w-1/3 saturate-150 will-change-transform"
+          loading="lazy"
+          srcSet="/img/4.webp?width=200 200w, 
+          /img/4.webp?width=500 500w, 
+          /img/4.webp?width=1000 1000w, 
+          /img/4.webp?width=2000 2000w"
+          sizes="(max-width: 768px) 33vw, (max-width: 1080px) 50vw, (max-width: 1366px) 80vw, 100vw"
+        />
+        <img 
+          src="/img/6.webp" 
+          alt="bicycle" 
+          className="w-1/3 saturate-150 will-change-transform"
+          loading="lazy"
+          srcSet="/img/6.webp?width=200 200w, 
+          /img/6.webp?width=500 500w, 
+          /img/6.webp?width=1000 1000w, 
+          /img/6.webp?width=2000 2000w"
+          sizes="(max-width: 768px) 33vw, (max-width: 1080px) 50vw, (max-width: 1366px) 80vw, 100vw"
+        />
       </div>
       <p id="text" className="w-1/2 text-2xl xl:text-3xl 3xl:text-4xl text-justify absolute right-8 top-10"><span className="uppercase">your trusted destination for high-performance sport bicycles. We are passionate about delivering top-quality bikes designed for speed, endurance, and adventure—perfect for both professional athletes and cycling enthusiasts.</span> <span className="font-lobster text-orange-600">Whether you're conquering mountain trails, racing on the road, or enjoying a weekend ride, we provide bikes that combine cutting-edge technology, durability, and style to elevate your cycling experience.</span>
       </p>

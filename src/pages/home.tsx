@@ -55,12 +55,12 @@ const Home = () => {
           className="w-[80%] absolute -bottom-1/2 z-40"
           alt="bicycle"
           fetchPriority="high"
-          srcSet="/img/bicycle.webp?width=100 100w, 
-          /img/bicycle.webp?width=400 400w, 
-          /img/bicycle.webp?width=800 800w, 
-          /img/bicycle.webp?width=1200 1200w"
-          sizes="(max-width: 768px) 33vw, (max-width: 1080px) 50vw, 100vw"
-          />
+          srcSet="/img/bicycle.webp?width=200 200w, 
+          /img/bicycle.webp?width=500 500w, 
+          /img/bicycle.webp?width=1000 1000w, 
+          /img/bicycle.webp?width=2000 2000w"
+          sizes="(max-width: 768px) 33vw, (max-width: 1080px) 50vw, (max-width: 1366px) 80vw, 100vw"
+        />
 
       <div className="absolute top-1/3">
         <div
