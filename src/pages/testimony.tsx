@@ -19,21 +19,21 @@ const Testimony = () => {
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger: container.current,
-        start: "top bottom",
-        end: "bottom bottom",
-        scrub:true,
+        start: "top 70%",
+        // end: "bottom bottom",
+        // scrub:true,
       }
     })
 
     tl.to(img1.current, {
       clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       ease:"power2.inOut",
-      duration:2,
+      duration:1,
     })
     .to(img2.current, {
       clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       ease:"power2.inOut",
-      duration:2,
+      duration:1,
     })
     .to(text1.current,{
       filter:"blur(0px)",
@@ -47,17 +47,17 @@ const Testimony = () => {
   },{scope:container})
 
   return (
-    <div ref={container} className="bg-neutral-900 h-[120dvh] px-8 py-10 relative">
+    <div ref={container} className="bg-neutral-900 h-[120vh] px-8 py-10 relative">
       <div className="grid grid-cols-2">
         <div className="w-full h-screen">
-          <img 
-            ref={img1} 
-            src="/img/2.webp" 
-            alt="bicycle" 
-            className="saturate-150" 
+          <img
+            ref={img1}
+            src="/img/2.webp"
+            alt="bicycle"
+            className="saturate-150"
             loading="lazy"
-            srcSet="/img/2.webp?width=200 200w, 
-                    /img/2.webp?width=500 500w, 
+            srcSet="/img/2.webp?width=200 200w,
+                    /img/2.webp?width=500 500w,
                     /img/2.webp?width=1000 1000w,
                     /img/2.webp?width=2000 2000w"
             sizes="(max-width: 768px) 33vw, (max-width: 1080px) 50vw, (max-width: 1366px) 80vw, 100vw"
@@ -69,14 +69,14 @@ const Testimony = () => {
           </div>
         </div>
         <div className="w-full place-content-end place-items-end">
-          <img 
-            ref={img2} 
-            src="/img/8.webp" 
-            alt="bicycle" 
+          <img
+            ref={img2}
+            src="/img/8.webp"
+            alt="bicycle"
             className="w-3/4 saturate-150"
             loading="lazy"
-            srcSet="/img/8.webp?width=200 200w, 
-                    /img/8.webp?width=500 500w, 
+            srcSet="/img/8.webp?width=200 200w,
+                    /img/8.webp?width=500 500w,
                     /img/8.webp?width=1000 1000w,
                     /img/8.webp?width=2000 2000w"
             sizes="(max-width: 768px) 33vw, (max-width: 1080px) 50vw, (max-width: 1366px) 80vw, 100vw"
