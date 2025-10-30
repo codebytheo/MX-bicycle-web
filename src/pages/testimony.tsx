@@ -19,29 +19,27 @@ const Testimony = () => {
     const tl = gsap.timeline({
       scrollTrigger:{
         trigger: container.current,
-        start: "top 70%",
-        // end: "bottom bottom",
-        // scrub:true,
+        start: "top 80%",
+        end: "bottom bottom",
+        scrub:true,
       }
     })
 
     tl.to(img1.current, {
       clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       ease:"power2.inOut",
-      duration:1,
-    })
+     })
     .to(img2.current, {
       clipPath:"polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
       ease:"power2.inOut",
-      duration:1,
-    })
+     })
     .to(text1.current,{
       filter:"blur(0px)",
-      ease:"power2.inOut"
+      ease:"power2.inOut",
     })
     .to(text2.current,{
       filter:"blur(0px)",
-      ease:"power2.inOut"
+      ease:"power2.inOut",
     })
 
   },{scope:container})
