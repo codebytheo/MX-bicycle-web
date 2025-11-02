@@ -33,7 +33,7 @@ const Philoshopy = () => {
   const paragraph2 = '"We believe a bicycle is more than just a machine—it’s freedom, health, and adventure. Every bike we offer reflects our passion for cycling and our commitment to helping riders experience the joy of movement, one ride at a time."'
 
   return (
-    <div ref={container} className="h-screen w-screen bg-gradient-to-b from-neutral-200 to-blue-50 px-8 py-10 relative">
+    <div id="philosophy" ref={container} className="h-screen w-screen bg-gradient-to-b from-neutral-200 to-blue-50 px-8 py-10 relative">
       <div className="grid grid-cols-2 gap-2 h-full">
         <div className="w-full place-self-end text-justify">
           {

@@ -6,12 +6,12 @@ import Home from "./pages/home"
 import Introduce from "./pages/introduce"
 import Philoshopy from "./pages/philoshopy"
 import Picture from "./pages/picture"
-import Product from "./pages/product"
 import Sales from "./pages/sales"
 import Testimony from "./pages/testimony"
 import Lenis from "lenis"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Identity from "./pages/identity"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -34,7 +34,7 @@ function App() {
       <Home />
       <Introduce />
       <Sales />
-      <Product />
+      <Identity />
       <Philoshopy />
       <Testimony />
       <Picture />

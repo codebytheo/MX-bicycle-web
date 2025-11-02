@@ -2,7 +2,7 @@ import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { useRef } from "react"
 
-const Product = () => {
+const Identity = () => {
   const container = useRef<HTMLDivElement>(null)
   const containerText = useRef<HTMLDivElement>(null)
   const img1 = useRef<HTMLImageElement>(null)
@@ -53,7 +53,7 @@ const Product = () => {
 
   },{scope:container})
   return (
-    <div ref={container} className="bg-gradient-to-b from-orange-500 to-orange-600 to-70% h-[150vh] relative px-8 py-10">
+    <div id="identity" ref={container} className="bg-gradient-to-b from-orange-500 to-orange-600 to-70% h-[150vh] relative px-8 py-10">
       <div className="flex gap-2 items-start">
         <img
           ref={img1}
@@ -90,4 +90,4 @@ const Product = () => {
   )
 }
 
-export default Product
+export default Identity

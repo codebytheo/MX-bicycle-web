@@ -45,7 +45,7 @@ const Testimony = () => {
   },{scope:container})
 
   return (
-    <div ref={container} className="bg-neutral-900 h-[120vh] px-8 py-10 relative">
+    <div id="testimony" ref={container} className="bg-neutral-900 h-[120vh] px-8 py-10 relative">
       <div className="grid grid-cols-2">
         <div className="w-full h-screen">
           <img

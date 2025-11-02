@@ -26,28 +26,28 @@ const Introduce = () => {
   },{scope:container})
 
   return (
-    <div ref={container} className="min-h-screen bg-neutral-900 text-neutral-200 px-8 py-10 relative">
+    <div id="introduce" ref={container} className="min-h-screen bg-neutral-900 text-neutral-200 px-8 py-10 relative">
       <div className="flex gap-2 items-baseline">
-        <img 
-          id="img1" 
-          src="/img/4.webp" 
-          alt="bicycle" 
+        <img
+          id="img1"
+          src="/img/4.webp"
+          alt="bicycle"
           className="w-1/3 saturate-150 will-change-transform"
           loading="lazy"
-          srcSet="/img/4.webp?width=200 200w, 
-          /img/4.webp?width=500 500w, 
-          /img/4.webp?width=1000 1000w, 
+          srcSet="/img/4.webp?width=200 200w,
+          /img/4.webp?width=500 500w,
+          /img/4.webp?width=1000 1000w,
           /img/4.webp?width=2000 2000w"
           sizes="(max-width: 768px) 33vw, (max-width: 1080px) 50vw, (max-width: 1366px) 80vw, 100vw"
         />
-        <img 
-          src="/img/6.webp" 
-          alt="bicycle" 
+        <img
+          src="/img/6.webp"
+          alt="bicycle"
           className="w-1/3 saturate-150 will-change-transform"
           loading="lazy"
-          srcSet="/img/6.webp?width=200 200w, 
-          /img/6.webp?width=500 500w, 
-          /img/6.webp?width=1000 1000w, 
+          srcSet="/img/6.webp?width=200 200w,
+          /img/6.webp?width=500 500w,
+          /img/6.webp?width=1000 1000w,
           /img/6.webp?width=2000 2000w"
           sizes="(max-width: 768px) 33vw, (max-width: 1080px) 50vw, (max-width: 1366px) 80vw, 100vw"
         />
